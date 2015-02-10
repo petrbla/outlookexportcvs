@@ -6,7 +6,7 @@
  * vytvoreno 02 2015
  */
  
- include_once './conectdb.php';
+include_once './conectdb.php';
  
 function array2csv(array &$array){
    if(count($array)==0){return null;}
@@ -34,7 +34,7 @@ function download_send_headers($filename) {
 $jmeno=iconv('utf-8','windows-1250', "Jméno");
 $email=iconv('utf-8','windows-1250', "E-mailová adresa");
 $list[]=array("$jmeno", "$email");
-$vysledek = mysql_query("SELECT * FROM `uzivatele` ORDER BY `id` ASC");
+$vysledek = mysql_query("SELECT * FROM `user` ORDER BY `id` ASC");
 while ($zaznam = MySQL_Fetch_Array($vysledek)){
 	$jmeno=iconv('utf-8','windows-1250', $zaznam[jmeno]);
 	$email=iconv('utf-8','windows-1250', $zaznam[email]);
